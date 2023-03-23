@@ -1,0 +1,61 @@
+
+server:
+  port: ${PORT:8080}
+  error:
+    whitelabel:
+      enabled: false
+### Info
+info:
+  app:
+    name: "@artifactId@"
+    version: "@version@"
+    description: "@name@"
+    contact:
+    ip: ${spring.cloud.client.ip-address}
+    profile: ${spring.profiles.active}
+
+spring:
+  application:
+    name: sboot-localstack
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+### JPA
+#  datasource:
+#    url: ${dbUrl}
+#    driverClassName: "com.mysql.cj.jdbc.Driver"
+#    username: ${dbUser}
+#    password: ${dbPass}
+#  jpa:
+#    database-platform: "org.hibernate.dialect.MySQL8Dialect"
+#    show:
+#      sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    hibernate:
+#      ddl-auto: create
+#    generate:
+#      ddl: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+
+### Log
+logging:
+  file:
+    path: "@logs.path@"
+#  path: "@logs.path@"
+
+### Proxy
+  proxy:
+    host: ""
+    port: ""
+    enabled: false
+
