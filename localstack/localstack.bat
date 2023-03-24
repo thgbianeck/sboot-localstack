@@ -5,7 +5,7 @@ REM aws configure --profile localstack
 echo ### Criando Chaves no AWS Parameter Store do LocalStack...
 aws --endpoint http://server.bieniek:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/helloWorld" --value "Hello World Parameter Store" --type String
 aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/sqsQueueName" --value "sqsHelloWorld" --type String
-REM ### aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/snsNotificationName" --value "snsHelloWorld" --type String
+aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/snsNotificationName" --value "snsHelloWorld" --type String
 REM ### aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/s3Bucket" --value "s3-helloworld" --type String
 REM ### aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/dbUrl" --value "jdbc:mysql://localhost:3306/databasedemo?createDatabaseIfNotExist=true" --type String
 REM ### aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/sboot-localstack_localstack/dbUser" --value "admin" --type String
@@ -25,6 +25,6 @@ aws --endpoint http://localhost:4566 --profile localstack sqs create-queue --que
 REM aws --endpoint http://localhost:4566 --profile localstack sqs send-message --queue-url http://localhost:4566/000000000000/sqsHelloWorld --message-body "Hello World SQS!!!" --delay-seconds 1
 REM aws --endpoint http://localhost:4566 --profile localstack sqs receive-message --queue-url http://localhost:4566/000000000000/sqsHelloWorld
 
-REM echo ### Criando Queue(Standard) no SNS do LocalStack...
-REM aws --endpoint http://localhost:4566 --profile localstack sns create-topic --name snsHelloWorld
-REM aws --endpoint http://localhost:4566 --profile localstack sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:snsHelloWorld --protocol sqs --notification-endpoint arn:aws:sqs:us-east-1:000000000000:sqsHelloWorld
+echo ### Criando Queue(Standard) no SNS do LocalStack...
+aws --endpoint http://localhost:4566 --profile localstack sns create-topic --name snsHelloWorld
+aws --endpoint http://localhost:4566 --profile localstack sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:snsHelloWorld --protocol sqs --notification-endpoint arn:aws:sqs:us-east-1:000000000000:sqsHelloWorld
