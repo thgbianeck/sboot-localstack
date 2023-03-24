@@ -15,8 +15,6 @@ info:
     profile: ${spring.profiles.active}
 
 spring:
-  application:
-    name: sboot-localstack
   mvc:
     throw-exception-if-no-handler-found: true
   web:
@@ -54,8 +52,8 @@ logging:
 #  path: "@logs.path@"
 
 ### Proxy
-  proxy:
-    host: ""
-    port: ""
-    enabled: false
+#  proxy:
+#    host: ""
+#    port: ""
+#    enabled: false
 
