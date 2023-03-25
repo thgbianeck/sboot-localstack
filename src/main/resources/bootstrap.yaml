@@ -21,3 +21,10 @@ cloud:
       endpoint: http://localhost:4566
     sns:
       endpoint: http://localhost:4566
+amazon:
+  aws:
+    accesskey: localstack
+    secretkey: localstack
+    region: us-east-1
+    dynamodb:
+      endpoint: http://localhost:4566
